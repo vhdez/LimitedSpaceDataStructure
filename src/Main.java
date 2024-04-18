@@ -1,16 +1,14 @@
 public class Main {
     public static void main(String[] args) {
         MyCoolDataStructure myData = new MyCoolDataStructure();
-        // MY CODE
-        myData.put(297);
-        myData.put(343);
-        myData.put(234);
 
-        Object data1 = myData.get();
-        System.out.println(data1);
-        Object data2 = myData.get();
-        System.out.println(data2);
-        Object data3 = myData.get();
-        System.out.println(data3);
+        PutterGetter1 tester1 = new PutterGetter1(myData);
+        PutterGetter2 tester2 = new PutterGetter2(myData);
+
+        Thread testing1 = new Thread(tester1);
+        Thread testing2 = new Thread(tester2);
+
+        testing1.start();
+        testing2.start();
     }
 }
