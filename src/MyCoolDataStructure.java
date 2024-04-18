@@ -3,6 +3,7 @@ public class MyCoolDataStructure implements DataStructure {
     // field for next put location
     int nextPut = 0;
     // field for next get location
+    int nextGet = 0;
     // field for space left
 
     // Methods
@@ -14,6 +15,7 @@ public class MyCoolDataStructure implements DataStructure {
     }
     public Object get() {
         // HOW?  YOU will write this.
+        // how about nextGet??
         // return objects[?????];
         return null;
     }
