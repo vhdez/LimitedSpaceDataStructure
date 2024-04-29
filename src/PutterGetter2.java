@@ -7,14 +7,28 @@ public class PutterGetter2 implements Runnable {
 
     public void run() {
 
-        for (int i = 800; i < 900;i = i + 1) {
-            myData.put(i);
+        try {
+            for (int i = 800; i < 900; i = i + 1) {
+                boolean success = myData.put(i);
+                while (!success) {
+                    Thread.sleep(100);
+                    success = myData.put(i);
+                }
+            }
+
+            for (int i = 800; i < 900; i = i + 1) {
+                Object data = myData.get();
+                while (data == null) {
+                    Thread.sleep(100);
+                    data = myData.get();
+                }
+                System.out.println(data);
+            }
+
+        } catch (Exception ex) {
+
         }
 
-        for (int i = 800; i < 900;i = i + 1) {
-            Object data = myData.get();
-            System.out.println(data);
-        }
 
     }
 }
